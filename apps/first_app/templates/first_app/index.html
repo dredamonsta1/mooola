@@ -1,19 +1,77 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="">
-      <h1>Mooola</h1>
-    </div>
-    <div class="">
-      <h3>How it works</h3>
-      <h3>Our story</h3>
-      <h3>Login</h3>
-      <h3>Sign Up</h3>
-    </div>
 
-  </body>
+
+
+<!-- !DOCTYPE html> -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+        <link href="{% static 'images/newsPaper.jpeg' %}" rel="stylesheet" media="screen">
+
+        <title>Mooola</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        
+
+        <script>
+
+            $(document).ready(function() {
+                $('form').submit(function() {
+                    var api_key = '42e5731e6c0a48e45d5a44fe14c06e1b';
+                    var city = $('input:text[name=city]').val();
+            // your code here (build up your url)
+                    $.get('http://api.openweathermap.org/data/2.5/weather?q='  + city + '&units=imperial&appid=' +api_key, function(res) {
+                        var html_str = '';
+                        html_str += "<p>" + res['name'] + ":" + res['weather'] [0] ['description'] + "</p>";
+                        html_str += "<p>" + "Temperature: " + res['main']['temp'] + " F</p>";
+                        $('#results').html(html_str);
+                // your code here
+                    }, 'jsonp');
+            // don't forget to return false so the page doesn't refresh
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <header id="showcase">
+            <h1>Welcome to Mooola</h1>
+
+
+            <p>Type in your city for temp info</p>
+              <!-- <input type="text" name="search" placeholder="Search.."><br>   -->
+             <!-- <a href="#" class="button">Search Weather</a>  -->
+
+             <div id="weather">
+            <form>
+                 <label for='city'>City: 
+                     <input type='text' name='city' placeholder="Search.." id='city'/> <br>
+                </label>
+                    <input type='submit' class="button" name='submit'/>
+            </form>
+            <div id="results"></div>
+        </div>
+
+        </header>
+
+
+
+
+
+<!-- http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&APPID={INSERTAPIKEY} -->
+<!-- // Make sure to put your unique API key in the URL (taking out the brackets). -->
+<!-- // &APPID={INSERTAPIKEY} will need to be at the end of each URL you access below and in the assignment. -->
+
+    </body>
+
+
 </html>

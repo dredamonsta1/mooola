@@ -32,6 +32,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.first_app',
+    'apps.bank',
+    'apps.stock',
+    'apps.users',
+    'apps.account',
+    'apps.mooola_home',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
