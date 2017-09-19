@@ -35,13 +35,32 @@
         </script> -->
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=722665084596496";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
     <header id="showcase">
-            <h1>Welcome to Weather Time</h1>
+            <h1>Welcome to Mooola</h1>
             <p>Type in your city for temp info</p>
               <!-- <input type="text" name="search" placeholder="Search.."><br>   -->
              <!-- <a href="#" class="button">Search Weather</a>  -->
+             <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+
+
+
+
+
+
 
              <div id="weather">
+
             <form>
                  <label for='city'>City:
                      <input type='text' name='city' placeholder="Search.." id='city'/> <br>
@@ -53,14 +72,14 @@
 
         </header>
     <div class="">
-      <h1>Mooola</h1>
+      <h1>Weather Time</h1>
     </div>
-    <div class="">
+    <!-- <div class="">
       <h3>How it works</h3>
       <h3>Our story</h3>
       <h3>Login</h3>
       <h3>Sign Up</h3>
-    </div>
+    </div> -->
 
   </body>
 </html>
